@@ -22,5 +22,10 @@ $(document).ready(() => {
       // userName: userInput.val().trim()
     };
     console.log(newMovie);
+    $.post('/api/movie', {
+      body: newMovie
+    }).then(() => {
+      window.location.replace('/members');
+    });
   });
 });
