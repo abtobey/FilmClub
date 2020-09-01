@@ -3,12 +3,12 @@ var express = require('express');
 
 var router = express.Router();
 
-var movie = require('../models/movie.js');
-const db = require('../models');
-module.exports = function(app){
+// var movie = require('../models/movie.js');
+// const db = require('../models');
+module.exports = function (app) {
 
   // router.post('/api/movie', (req, res) => {
-  
+
 //   db.Movie.create({
 //     title: req.body.title,
 //     streamService: req.body.streaming,
@@ -19,7 +19,6 @@ module.exports = function(app){
 //     userId: 1
 //   });
 // });
-}
-
+};
 
 module.exports = router;
