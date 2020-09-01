@@ -33,3 +33,10 @@
   </div>
   </div>
   <button type="button" class="btn btn-primary" id="submitButton">Submit</button>
+
+
+  {{!-- movie card --}}
+
+  {{#each movies}}
+  {{> movies/movie-block}}
+  {{/each}}
