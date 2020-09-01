@@ -1,3 +1,4 @@
+
 <button type="button" class="btn btn-primary" id="addMovie">Add a Movie</button>
 <button type="button" class="btn btn-primary" id="addShow">Add a Show</button>
 <div id="inputForm"></div>
@@ -5,9 +6,12 @@
 
 
 
+  <div class="row">
+    {{#each movies}}
+    {{> movies/movie-block}}
+    {{/each}}
+  </div>
 
-  {{!-- movie card --}}
 
-  {{#each movies}}
-  {{> movies/movie-block}}
-  {{/each}}
+  </div>
+</main>
