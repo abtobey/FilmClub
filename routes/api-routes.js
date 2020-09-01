@@ -23,6 +23,8 @@ module.exports = function (app) {
       recommend: req.body.recommend,
       // need to figure out how to get the session user ID
       UserId: req.user.id
+    }).then(() => {
+      res.status(200).end();
     });
   });
 
