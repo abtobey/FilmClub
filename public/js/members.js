@@ -36,6 +36,7 @@ $(document).ready(() => {
     <option>Amazon</option>
     <option>Apple Video</option>
     <option>Disney Plus</option>
+    <option>HBO</option>
     <option>None of the above</option>
   </select>
 </div>
@@ -103,6 +104,7 @@ $(document).ready(() => {
     <option>Amazon</option>
     <option>Apple Video</option>
     <option>Disney Plus</option>
+    <option>HBO</option>
     <option>None of the above</option>
   </select>
 </div>
