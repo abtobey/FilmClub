@@ -7,9 +7,22 @@
 
 
   <div class="row">
+    <div class="col-6">
+      Recommended movies
     {{#each movies}}
+    {{#if recommend}}
     {{> movies/movie-block}}
+    {{/if}}
     {{/each}}
+    </div>
+    <div class="col-6">
+      Movies not recommended
+    {{#each movies}}
+    {{#unless recommend}}
+    {{> movies/movie-block}}
+    {{/unless}}
+    {{/each}}
+    </div>
   </div>
 
 
