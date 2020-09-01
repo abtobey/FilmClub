@@ -45,15 +45,16 @@ $(document).ready(() => {
     <input type="radio" name="recommend" value="0"> Do Not Recommend
   </div>
 </div>
+<button type="button" class="btn btn-primary" id="showSubmitButton">Submit</button>
 </div>
     `
     );
-    $('#movieSubmitButton').on('click', function () {
+    $('#showSubmitButton').on('click', function () {
       event.preventDefault();
       const title = $('#showTitle');
       const rating = $('#rating');
       const writeUp = $('#writeUp');
-      const minEpisodes =$('#minEpisodes');
+      const minEpisodes = $('#minEpisodes');
       const streaming = $('#streamingService');
 
       const newShow = {
@@ -66,7 +67,7 @@ $(document).ready(() => {
 
       // userName: userInput.val().trim()
       };
-      console.log(newMovie);
+      console.log(newShow);
       $.ajax('/api/show', {
         type: 'POST',
         data: newShow
@@ -111,6 +112,7 @@ $(document).ready(() => {
     <input type="radio" name="recommend" value="0"> Do Not Recommend
   </div>
 </div>
+<button type="button" class="btn btn-primary" id="movieSubmitButton">Submit</button>
 </div>
 `);
     $('#movieSubmitButton').on('click', function () {

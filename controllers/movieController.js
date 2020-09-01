@@ -3,8 +3,8 @@ var express = require('express');
 
 var router = express.Router();
 
-var movie = require('../models/movie.js');
-const db = require('../models');
+// var movie = require('../models/movie.js');
+// const db = require('../models');
 module.exports = function (app) {
 
   // router.post('/api/movie', (req, res) => {

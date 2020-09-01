@@ -29,7 +29,7 @@ module.exports = function (app) {
   });
 
   app.post('/api/show', (req, res) => {
-    db.Show.create({
+    db.TvShow.create({
       title: req.body.title,
       streamService: req.body.streaming,
       rating: req.body.rating,
