@@ -45,11 +45,13 @@ module.exports = function(app) {
       });
   });
 
-  app.get("/api/movie", (req, res) => {
+  app.get("/movies", (req, res) => {
     db.Movie.findAll({
       where: { UserId: req.user.id },
     }).then((data) => {
-      res.json(data);
+      console.log(data.map((item) => item.dataValues));
+
+      res.render("index", { movies: data.map((item) => item.dataValues) });
     });
   });
 
