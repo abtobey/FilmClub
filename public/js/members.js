@@ -10,7 +10,7 @@ $(document).ready(() => {
   const streaming = $('#streamingService');
 
   $.get('/api/movie').then((data) => {
-    res.render
+    res.render;
   });
 
   $('#submitButton').on('click', function () {
