@@ -9,6 +9,10 @@ $(document).ready(() => {
   const writeUp = $('#writeUp');
   const streaming = $('#streamingService');
 
+  $.get('/api/movie').then((data) => {
+    console.log(data);
+  });
+
   $('#submitButton').on('click', function () {
     event.preventDefault();
 
