@@ -22,5 +22,11 @@ $(document).ready(() => {
       // userName: userInput.val().trim()
     };
     console.log(newMovie);
+    $.ajax('/api/movie', {
+      type: 'POST',
+      data: newMovie
+    }).then(() => {
+      location.reload();
+    });
   });
 });

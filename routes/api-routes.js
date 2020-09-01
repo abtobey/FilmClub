@@ -14,6 +14,20 @@ module.exports = function (app) {
     });
   });
 
+  app.post('/api/movie', (req, res) => {
+    db.Movie.create({
+      title: req.body.title,
+      streamService: req.body.streaming,
+      rating: req.body.rating,
+      writeUp: req.body.writeUp,
+      recommend: req.body.recommend,
+      // need to figure out how to get the session user ID
+      UserId: req.user.id
+    }).then(() => {
+      res.status(200).end();
+    });
+  });
+
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
   // how we configured our Sequelize User Model. If the user is created successfully, proceed to log the user in,
   // otherwise send back an error
