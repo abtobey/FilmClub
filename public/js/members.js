@@ -4,6 +4,23 @@ $(document).ready(() => {
   $.get('/api/user_data').then((data) => {
     $('.member-name').text(data.email);
   });
+
+  $('.userName').on('click', function () {
+    const userNameSelected = $(this).text();
+    $.get('/api/user_data').then((data) => {
+      console.log(data);
+      if (userNameSelected === data.userName) {
+        window.location.replace('/movies');
+      } else {
+        $.get('/api/userid/' + userNameSelected).then((data) => {
+          $.get('/users=' + data).then(() => {
+            window.location.replace('/users=' + data);
+          });
+        });
+      };
+    });
+  });
+
   $('.movieTitle').on('click', function () {
     const title = $(this).text();
     $.get(`/movies=${title}`).then((data) => {

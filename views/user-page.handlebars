@@ -1,0 +1,28 @@
+<main class="container">
+  <h1>Reviews by {{userName}}</h1>
+
+
+
+
+
+  <div class="row">
+    <div class="col-6">
+      Recommended
+      {{#each movies}}
+      {{#if recommend}}
+      {{> movies/movie-block}}
+      {{/if}}
+      {{/each}}
+    </div>
+    <div class="col-6">
+      Not recommended
+      {{#each movies}}
+      {{#unless recommend}}
+      {{> movies/movie-block}}
+      {{/unless}}
+      {{/each}}
+    </div>
+  </div>
+
+  </div>
+</main>
