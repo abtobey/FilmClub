@@ -1,17 +1,36 @@
+<main class="container">
+  <button type="button" class="btn btn-primary" id="addMovie">Add a Movie</button>
+  <button type="button" class="btn btn-primary" id="addShow">Add a Show</button>
+  <div id="inputForm"></div>
 
-<button type="button" class="btn btn-primary" id="addMovie">Add a Movie</button>
-<button type="button" class="btn btn-primary" id="addShow">Add a Show</button>
-<div id="inputForm"></div>
 
 
-  
+
 
   <div class="row">
-    {{#each movies}}
-    {{> movies/movie-block}}
-    {{/each}}
-  </div>
+    <div class="col-4">
+      <div class="card-header">
+        <h3>Recommended</h3>
+      </div>
+      {{#each movies}}
+      {{#if recommend}}
+      {{> movies/movie-block}}
+      {{/if}}
+      {{/each}}
+    </div>
 
+
+    <div class="col-4">
+      <div class="card-header">
+        <h3>Not Recommended</h3>
+      </div>
+      {{#each movies}}
+      {{#unless recommend}}
+      {{> movies/movie-block}}
+      {{/unless}}
+      {{/each}}
+    </div>
+  </div>
 
   </div>
 </main>
