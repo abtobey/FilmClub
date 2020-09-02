@@ -1,17 +1,13 @@
-{{!-- <div class="card" style="width: 25rem;">
-    <li class="list-group-item card-header movieTitle">{{this.title}}</li>
-    <li class="list-group-item">{{this.rating}}</li>
-    <li class="list-group-item">{{this.streamService}}</li>
-    <li class="list-group-item">{{this.writeUp}}</li>
-    </ul>
-</div> --}}
+<ul class="mt-3" style="width: 35rem;">
+    <li class="list-group-item" id="movieInfo">
+        <h5 class="card-title"><a class="movieTitle">{{this.title}}</a></h5>
+        <h6 class="card-subtitle mb-2">Rating: {{this.rating}} | Platform: {{this.streamService}}</h6>
+    </li>
 
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title movieTitle">{{this.title}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Rating: {{this.rating}} | Platform: {{this.streamService}}</h6>
-
+    <li class="list-group-item">
         <p class="card-text">{{this.writeUp}}</p>
+    </li>
+    <li class="list-group-item">
         <button class="delete-review btn btn-danger btn-sm" data-id="{{this.id}}">Delete Review</button>
-    </div>
-</div>
+    </li>
+</ul>
