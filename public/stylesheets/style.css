@@ -18,9 +18,23 @@ body {
   color: orange !important;
 }
 
+ul {
+  display: block;
+  list-style-type: disc;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+  padding-inline-start: 0px;
+}
+
 #siteLogo {
   max-width: 18rem;
 }
+#handlebarLogo {
+  max-width: 15rem;
+}
+
 #loginCard,
 #signUpCard {
   margin-top: 40%;

@@ -1,15 +1,20 @@
-<div class="card" style="width: 25rem;">
-    <li class="list-group-item card-header"> User: <span class="userName">{{this.userName}}</span></li>
-    <li class="list-group-item">Rating: {{this.rating}}</li>
-    <li class="list-group-item">Minimum episodes you should watch before giving up: {{this.minEpisodes}}</li>
-    <li class="list-group-item">Streamed on: {{this.streamService}}</li>
-    <li class="list-group-item">Review: {{this.writeUp}}</li>
+<ul style="width: 35rem;">
+    <li class="list-group-item">
+        <h5 class="card-text text-center"><a class="userName">{{this.userName}}</a>'s Review</h5>
+    </li>
+    <li class="list-group-item" id="movieInfo">
+        <h5 class="card-title"><a class="movieTitle">{{this.title}}</a></h5>
+        <h6 class="card-subtitle mb-2">Rating: {{this.rating}} | Platform: {{this.streamService}}</h6>
+    </li>
+    <li class="list-group-item">
+        <p class="card-text">{{this.writeUp}}</p>
+    </li>
+
     {{#if this.recommend}}
-    <li class="list-group-item">Recommended</li>
+    <li class="list-group-item text-center">They recommend this movie!</li>
     {{/if}}
     {{#unless this.recommend}}
-    <li class="list-group-item">Not recommended</li>
+    <li class="list-group-item text-center">They do not recommend this movie...</li>
     {{/unless}}
-    <li class="list-group-item reviewTimestamp">{{this.createdAt}}</li>
-    </ul>
-</div>
+    <li class="list-group-item reviewTimestamp text-muted text-center">{{this.createdAt}}</li>
+</ul>

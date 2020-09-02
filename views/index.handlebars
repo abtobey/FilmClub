@@ -1,36 +1,49 @@
 <main class="container">
+
+
   <button type="button" class="btn btn-primary" id="addMovie">Add a Movie</button>
   <button type="button" class="btn btn-primary" id="addShow">Add a Show</button>
   <div id="inputForm"></div>
 
 
 
-
   <div class="row d-flex justify-content-center">
-    <h2>Movies!</h2>
+    <h2>Movie Reviews</h2>
   </div>
+
+
+
   <div class="row mt-3">
     <div class="col-6">
-      <h2>Recommended</h2>
-      {{#each movies}}
-      {{#if recommend}}
-      {{> movies/movie-block}}
-      {{/if}}
-      {{/each}}
+      <h4>Recommended</h4>
+      <div>
+        {{#each movies}}
+        {{#if recommend}}
+        {{> movies/movie-block}}
+        {{/if}}
+        {{/each}}
+      </div>
     </div>
+
     <div class="col-6">
-      <h2>Not Recommended</h2>
-      {{#each movies}}
-      {{#unless recommend}}
-      {{> movies/movie-block}}
-      {{/unless}}
-      {{/each}}
+      <h4>Not Recommended</h4>
+      <div>
+        {{#each movies}}
+        {{#unless recommend}}
+        {{> movies/movie-block}}
+        {{/unless}}
+        {{/each}}
+      </div>
     </div>
   </div>
-  <h2>Tv Shows</h2>
-  <div class="row">
+  {{!-- TVSHOWS --}}
+  <div class="row d-flex justify-content-center">
+    <h2>TV Show Reviews</h2>
+  </div>
+
+  <div class="row mt-3">
     <div class="col-6">
-      Recommended
+      <h4>Recommended</h4>
       {{#each shows}}
       {{#if recommend}}
       {{> shows/show-block}}
@@ -38,7 +51,7 @@
       {{/each}}
     </div>
     <div class="col-6">
-      Not recommended
+      <h4>Not Recommended</h4>
       {{#each shows}}
       {{#unless recommend}}
       {{> shows/show-block}}
