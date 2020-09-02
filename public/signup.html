@@ -9,41 +9,53 @@
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
   <link href="stylesheets/style.css" rel="stylesheet">
 </head>
+<style>
+  body {
+    background-image: url(https://nofilmschool.com/sites/default/files/styles/facebook/public/inglourious_basterds_0.png?itok=CGbfZBT_);
+  }
+</style>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-center">
+  <!-- <nav class="navbar navbar-expand-lg navbar-light bg-light d-flex justify-content-center">
     <a href="#"><img class="mt-1 mb-1" id="siteLogo" src="./assets/FILMCLUB.png"></a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
       aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
-  </nav>
+  </nav> -->
   <div class="container">
 
     <div class="row justify-content-center">
       <div class="col-md-6 col-md-offset-3">
-        <form class="signup">
-          <h2>Sign Up Form</h2>
-          <div class="form-group">
-            <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email-input" placeholder="Email">
+
+        <div class="card bg-transparent border-0" id="signUpCard">
+          <div class="card-body">
+
+            <form class="signup text-white">
+              <a href=" #"><img class="mt-1 mb-1" id="siteLogo" src="./assets/FILMCLUB.png"></a>
+              <h2>Sign Up Form</h2>
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="email-input" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputUsername">Username</label>
+                <input type="text" class="form-control" id="userName-input" placeholder="User Name">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="password-input" placeholder="Password">
+              </div>
+              <div style="display: none" id="alert" class="alert alert-danger" role="alert">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span> <span class="msg"></span>
+              </div>
+              <button type="submit" class="btn btn-warning text-danger">Login</button>
+            </form>
+            <br />
+            <p class="text-white">Or sign up <a class="text-warning" href="/login">here</a></p>
           </div>
-          <div class="form-group">
-            <label for="exampleInputUsername">Username</label>
-            <input type="text" class="form-control" id="userName-input" placeholder="User Name">
-          </div>
-          <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password-input" placeholder="Password">
-          </div>
-          <div style="display: none" id="alert" class="alert alert-danger" role="alert">
-            <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-            <span class="sr-only">Error:</span> <span class="msg"></span>
-          </div>
-          <button type="submit" class="btn btn-primary">Sign Up</button>
-        </form>
-        <br />
-        <p>Or log in <a href="/login">here</a></p>
+        </div>
       </div>
     </div>
   </div>

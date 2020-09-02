@@ -1,6 +1,16 @@
+html,
 body {
-  /* background-image: url(https://mostlyfilm.files.wordpress.com/2015/05/mad-max-fury-road-01.jpg);
-  background-repeat: no-repeat; */
+  height: 100%;
+  min-height: 100%;
+  max-height: 100%;
+}
+body {
+  background: url(https://i.pinimg.com/originals/88/33/35/8833353216081029e8e892fd0f6635ce.png)
+    no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 .navbar-brand {
   font-size: 40px;
@@ -11,10 +21,9 @@ body {
 #siteLogo {
   max-width: 18rem;
 }
-
-form.signup,
-form.login {
-  margin-top: 50px;
+#loginCard,
+#signUpCard {
+  margin-top: 40%;
 }
 
 #welcomeText {
