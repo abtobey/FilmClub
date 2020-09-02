@@ -6,7 +6,7 @@
 
 
 
-
+  <h2>Movies</h2>
   <div class="row">
     <div class="col-6">
       Recommended
@@ -21,6 +21,25 @@
       {{#each movies}}
       {{#unless recommend}}
       {{> movies/movie-block}}
+      {{/unless}}
+      {{/each}}
+    </div>
+  </div>
+  <h2>Tv Shows</h2>
+  <div class="row">
+    <div class="col-6">
+      Recommended
+      {{#each shows}}
+      {{#if recommend}}
+      {{> shows/show-block}}
+      {{/if}}
+      {{/each}}
+    </div>
+    <div class="col-6">
+      Not recommended
+      {{#each shows}}
+      {{#unless recommend}}
+      {{> shows/show-block}}
       {{/unless}}
       {{/each}}
     </div>
