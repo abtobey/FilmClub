@@ -14,27 +14,25 @@
 
 
   <div class="row mt-3">
+
     <div class="col-6">
       <h4>Recommended</h4>
-      <div>
-        {{#each movies}}
-        {{#if recommend}}
-        {{> movies/movie-block}}
-        {{/if}}
-        {{/each}}
-      </div>
+      {{#each movies}}
+      {{#if recommend}}
+      {{> movies/movie-block}}
+      {{/if}}
+      {{/each}}
     </div>
 
     <div class="col-6">
       <h4>Not Recommended</h4>
-      <div>
-        {{#each movies}}
-        {{#unless recommend}}
-        {{> movies/movie-block}}
-        {{/unless}}
-        {{/each}}
-      </div>
+      {{#each movies}}
+      {{#unless recommend}}
+      {{> movies/movie-block}}
+      {{/unless}}
+      {{/each}}
     </div>
+
   </div>
   {{!-- TVSHOWS --}}
   <div class="row d-flex justify-content-center">
