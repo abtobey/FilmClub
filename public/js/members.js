@@ -1,10 +1,17 @@
 $(document).ready(() => {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
-  $.get("/api/user_data").then((data) => {
-    $(".member-name").text(data.email);
+  $.get('/api/user_data').then((data) => {
+    $('.member-name').text(data.email);
   });
-
+  $('.movieTitle').on('click', function () {
+    const title = $(this).text();
+    $.get(`/movies=${title}`).then((data) => {
+      // console.log(data);
+      // location.reload();
+      window.location.replace('/movies=' + title);
+    });
+  });
 
   $('#addShow').on('click', function () {
     $('#inputForm').empty().append(
@@ -26,7 +33,7 @@ $(document).ready(() => {
 </div>
 <div class="form-group">
   <label for="movieTitle">How many episodes should someone watch before giving up?</label>
-  <input type="number" class="form-control" id="minEpisodes">
+  <input type="number" class="form-control" id="minEpisodes" value="0">
 </div>
 <div class="form-group">
   <label for="streamingService">What streaming service did you watch it on?</label>
