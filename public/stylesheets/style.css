@@ -5,6 +5,8 @@ form.login {
 .navbar-brand {
   /* font-size: 20px !important; */
 }
-form#userSearch {
-  margin-top: 5px;
+
+#welcomeText {
+  text-align: center;
+  max-width: 100% !important;
 }
