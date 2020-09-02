@@ -24,10 +24,7 @@ module.exports = function (sequelize, DataTypes) {
     },
     minEpisodes: {
       type: DataTypes.INTEGER,
-      allowNull: true,
-      validate: {
-        isInt: true
-      }
+      allowNull: true
     },
     writeUp: {
       type: DataTypes.STRING,

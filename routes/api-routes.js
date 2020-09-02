@@ -1,6 +1,7 @@
 // Requiring our models and passport as we've configured it
 const db = require('../models');
 const passport = require('../config/passport');
+const moment = require('moment');
 
 module.exports = function (app) {
   // Using the passport.authenticate middleware with our local strategy.
@@ -58,6 +59,25 @@ module.exports = function (app) {
       .catch((err) => {
         res.status(401).json(err);
       });
+  });
+
+  app.get('/movies=:title', (req, res) => {
+    db.Movie.findAll({
+      where: { title: req.params.title },
+      include: [db.User]
+    }).then((data) => {
+      const filtered = data.map((item) => {
+        return {
+          userName: item.User.userName,
+          rating: item.rating,
+          writeUp: item.writeUp,
+          recommend: item.recommend,
+          streamService: item.streamService,
+          createdAt: moment(item.createdAt).format('MMMM Do YYYY h:mm:ss a')
+        };
+      });
+      res.render('movie-search', { title: req.params.title, reviews: filtered });
+    });
   });
 
   app.get('/movies', (req, res) => {
