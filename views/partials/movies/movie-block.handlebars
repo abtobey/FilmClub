@@ -8,8 +8,9 @@
 
 <div class="card" style="width: 18rem;">
     <div class="card-body">
-        <h5 class="card-title">{{this.title}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Rating: {{this.rating}} | Platform: {{this.streamService}}</h6>
+        <h5 class="card-title"><a class="movieTitle">{{this.title}}</a></h5>
+        <h6 class="card-subtitle mb-2">Rating: {{this.rating}}</h6>
+        <h6 class="card-subtitle mb-2">Platform: {{this.streamService}}</h6>
 
         <p class="card-text">{{this.writeUp}}</p>
         <button class="delete-review btn btn-danger btn-sm" data-id="{{this.id}}">Delete Review</button>
