@@ -21,7 +21,3 @@ form.login {
 #searchInput {
   max-width: 20rem;
 }
-#searchAlign {
-  float: right;
-  max-width: 0;
-}
