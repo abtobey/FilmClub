@@ -1,0 +1,15 @@
+<div class="card" style="width: 25rem;">
+    <li class="list-group-item card-header userName"> User: {{this.userName}}</li>
+    <li class="list-group-item">Rating: {{this.rating}}</li>
+    <li class="list-group-item">Minimum episodes you should watch before giving up: {{this.minEpisodes}}</li>
+    <li class="list-group-item">Streamed on: {{this.streamService}}</li>
+    <li class="list-group-item">Review: {{this.writeUp}}</li>
+    {{#if this.recommend}}
+    <li class="list-group-item">Recommended</li>
+    {{/if}}
+    {{#unless this.recommend}}
+    <li class="list-group-item">Not recommended</li>
+    {{/unless}}
+    <li class="list-group-item reviewTimestamp">{{this.createdAt}}</li>
+    </ul>
+</div>
