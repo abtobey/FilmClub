@@ -2,7 +2,7 @@ $(document).ready(() => {
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
   $.get('/api/user_data').then((data) => {
-    $('.member-name').text(data.email);
+    $('.member-name').text(data.userName);
   });
 
   $('.userName').on('click', function () {
@@ -27,6 +27,14 @@ $(document).ready(() => {
       // console.log(data);
       // location.reload();
       window.location.replace('/movies=' + title);
+    });
+  });
+  $('.showTitle').on('click', function () {
+    const title = $(this).text();
+    $.get(`/shows=${title}`).then((data) => {
+      // console.log(data);
+      // location.reload();
+      window.location.replace('/shows=' + title);
     });
   });
 
