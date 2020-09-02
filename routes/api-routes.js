@@ -129,12 +129,20 @@ module.exports = function (app) {
   });
 
   app.get('/movies', (req, res) => {
+    let moviesReviewed =[];
+    let showsReviewed=[];
     db.Movie.findAll({
       where: { UserId: req.user.id }
     }).then((data) => {
-      console.log(data.map((item) => item.dataValues));
-
-      res.render('index', { movies: data.map((item) => item.dataValues) });
+      moviesReviewed = data.map((item) => item.dataValues);
+    }).then(() => {
+      db.TvShow.findAll({
+        where: { UserId: req.user.id }
+      }).then((data) => {
+        showsReviewed = data.map((item) => item.dataValues);
+      }).then(() => {
+        res.render('index', { movies: moviesReviewed, shows: showsReviewed });
+      });
     });
   });
 
