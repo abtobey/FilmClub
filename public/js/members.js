@@ -23,12 +23,34 @@ $(document).ready(() => {
 
   $('.movieTitle').on('click', function () {
     const title = $(this).text();
-    $.get(`/movies=${title}`).then((data) => {
-      // console.log(data);
-      // location.reload();
       window.location.replace('/movies=' + title);
-    });
   });
+
+$('#searchButton').on('click', function () {
+  const searchOption= $('#searchSelect').val();
+  const searchValue= $('#searchInput').val().trim();
+  console.log(searchOption);
+  console.log(searchValue);
+  switch (searchOption) {
+    case '1':
+      $.get('/api/userid/' + searchValue).then((data) => {
+        $.get('/users=' + data).then(() => {
+          window.location.replace('/users=' + data);
+        });
+      });
+      break;
+    case '2':
+      console.log('somtthing');
+      window.location.replace('/movies=' + searchValue);
+      break;
+    case '3':
+      window.location.replace('/shows=' + searchValue);
+      break;
+    default:
+      break;
+  }
+})
+
   $('.showTitle').on('click', function () {
     const title = $(this).text();
     $.get(`/shows=${title}`).then((data) => {

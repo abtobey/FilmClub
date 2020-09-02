@@ -62,22 +62,20 @@ module.exports = function (app) {
   });
 
   app.get('/users=:id', (req, res) => {
+    let moviesReviewed =[];
+    let showsReviewed=[];
     db.Movie.findAll({
-      where: { UserId: req.params.id },
-      include: [db.User]
+      where: { UserId: req.params.id }
     }).then((data) => {
-      const filteredUserMovies = data.map((item) => {
-        return {
-          userName: item.User.userName,
-          title: item.title,
-          rating: item.rating,
-          writeUp: item.writeUp,
-          recommend: item.recommend,
-          streamService: item.streamService,
-          createdAt: moment(item.createdAt).format('MMMM Do YYYY h:mm:ss a')
-        };
+      moviesReviewed = data.map((item) => item.dataValues);
+    }).then(() => {
+      db.TvShow.findAll({
+        where: { UserId: req.params.id }
+      }).then((data) => {
+        showsReviewed = data.map((item) => item.dataValues);
+      }).then(() => {
+        res.render('index', { movies: moviesReviewed, shows: showsReviewed });
       });
-      res.render('user-page', { userName: filteredUserMovies[0].userName, movies: filteredUserMovies });
     });
   });
 
