@@ -61,6 +61,34 @@ module.exports = function (app) {
       });
   });
 
+  app.get('/users=:id', (req, res) => {
+    db.Movie.findAll({
+      where: { UserId: req.params.id },
+      include: [db.User]
+    }).then((data) => {
+      const filteredUserMovies = data.map((item) => {
+        return {
+          userName: item.User.userName,
+          title: item.title,
+          rating: item.rating,
+          writeUp: item.writeUp,
+          recommend: item.recommend,
+          streamService: item.streamService,
+          createdAt: moment(item.createdAt).format('MMMM Do YYYY h:mm:ss a')
+        };
+      });
+      res.render('user-page', { userName: filteredUserMovies[0].userName, movies: filteredUserMovies });
+    });
+  });
+
+  app.get('/api/userid/:userName', (req, res) => {
+    db.User.findOne({
+      where: { userName: req.params.userName }
+    }).then((data) => {
+      res.json(data.id);
+    });
+  });
+
   app.get('/movies=:title', (req, res) => {
     db.Movie.findAll({
       where: { title: req.params.title },
@@ -79,6 +107,7 @@ module.exports = function (app) {
       res.render('movie-search', { title: req.params.title, reviews: filtered });
     });
   });
+
   app.get('/shows=:title', (req, res) => {
     db.TvShow.findAll({
       where: { title: req.params.title },

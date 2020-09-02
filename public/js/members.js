@@ -9,11 +9,14 @@ $(document).ready(() => {
     const userNameSelected = $(this).text();
     $.get('/api/user_data').then((data) => {
       console.log(data);
-      if (userNameSelected === data.userName){
+      if (userNameSelected === data.userName) {
         window.location.replace('/movies');
-      }
-      else{
-        console.log("goodbye");
+      } else {
+        $.get('/api/userid/' + userNameSelected).then((data) => {
+          $.get('/users=' + data).then(() => {
+            window.location.replace('/users=' + data);
+          });
+        });
       };
     });
   });
