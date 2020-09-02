@@ -79,6 +79,25 @@ module.exports = function (app) {
       res.render('movie-search', { title: req.params.title, reviews: filtered });
     });
   });
+  app.get('/shows=:title', (req, res) => {
+    db.TvShow.findAll({
+      where: { title: req.params.title },
+      include: [db.User]
+    }).then((data) => {
+      const filtered = data.map((item) => {
+        return {
+          userName: item.User.userName,
+          rating: item.rating,
+          writeUp: item.writeUp,
+          recommend: item.recommend,
+          minEpisodes: item.minEpisodes,
+          streamService: item.streamService,
+          createdAt: moment(item.createdAt).format('MMMM Do YYYY h:mm:ss a')
+        };
+      });
+      res.render('show-search', { title: req.params.title, reviews: filtered });
+    });
+  });
 
   app.get('/movies', (req, res) => {
     db.Movie.findAll({
@@ -106,7 +125,8 @@ module.exports = function (app) {
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
         email: req.user.email,
-        id: req.user.id
+        id: req.user.id,
+        userName: req.user.userName
       });
     }
   });
