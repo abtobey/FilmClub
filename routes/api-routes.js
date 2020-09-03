@@ -59,11 +59,18 @@ module.exports = function (app) {
       });
   });
 
+  app.delete('/api/shows/:id', (req, res) => {
+    db.TvShow.destroy({
+      where: { id: req.params.id }
+    }).then((data) => {
+      res.json(data);
+    });
+  });
+
   app.delete('/api/movie/:id', (req, res) => {
     db.Movie.destroy({
       where: { id: req.params.id }
     }).then((data) => {
-      console.log('ok');
       res.json(data);
     });
   });
@@ -71,6 +78,10 @@ module.exports = function (app) {
   app.get('/users=:id', (req, res) => {
     let moviesReviewed = [];
     let showsReviewed = [];
+    let currentUser=false;
+    if(req.user.id === parseInt(req.params.id)){
+      currentUser=true;
+    }
     db.Movie.findAll({
       where: { UserId: req.params.id }
     }).then((data) => {
@@ -81,7 +92,7 @@ module.exports = function (app) {
       }).then((data) => {
         showsReviewed = data.map((item) => item.dataValues);
       }).then(() => {
-        res.render('index', { movies: moviesReviewed, shows: showsReviewed });
+        res.render('index', { movies: moviesReviewed, shows: showsReviewed, currentUser: currentUser });
       });
     });
   });
@@ -146,7 +157,7 @@ module.exports = function (app) {
       }).then((data) => {
         showsReviewed = data.map((item) => item.dataValues);
       }).then(() => {
-        res.render('index', { movies: moviesReviewed, shows: showsReviewed });
+        res.render('index', { movies: moviesReviewed, shows: showsReviewed, currentUser: true });
       });
     });
   });
