@@ -42,19 +42,19 @@ $(document).ready(() => {
     window.location.replace("/movies=" + title);
   });
 
-  $("#searchButton").on("click", function() {
-    const searchOption = $("#searchSelect").val();
-    const searchValue = $("#searchInput")
-      .val()
-      .trim();
-    console.log(searchOption);
-    console.log(searchValue);
+  $('#searchButton').on('click', function () {
+    const searchOption = $('#searchSelect').val();
+    const searchValue = $('#searchInput').val().trim();
     switch (searchOption) {
-      case "1":
-        $.get("/api/userid/" + searchValue).then((data) => {
-          $.get("/users=" + data).then(() => {
-            window.location.replace("/users=" + data);
-          });
+      case '1':
+        $.get('/api/userid/' + searchValue).then((data) => {
+          if (data !== '404') {
+            $.get('/users=' + data).then(() => {
+              window.location.replace('/users=' + data);
+            });
+          } else {
+            window.location.replace('/404');
+          }
         });
         break;
       case "2":
