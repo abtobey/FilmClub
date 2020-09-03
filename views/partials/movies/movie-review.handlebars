@@ -1,20 +1,22 @@
 <ul style="width: 35rem;">
-    <li class="list-group-item">
-        <h5 class="card-text text-center"><a class="userName">{{this.userName}}</a>'s Review</h5>
+    <li class=" list-group-item bg-dark text-warning border-warning">
+        <h5 class="card-text text-center text-light"><a class="userName text-light">{{this.userName}}</a>'s Review</h5>
     </li>
-    <li class="list-group-item" id="movieInfo">
-        <h5 class="card-title"><a class="movieTitle">{{this.title}}</a></h5>
-        <h6 class="card-subtitle mb-2">Rating: {{this.rating}} | Platform: {{this.streamService}}</h6>
+    <li class=" list-group-item bg-dark text-warning border-warning" id="movieInfo">
+        <h5 class="card-title"><a class="movieTitle text-light">{{this.title}}</a></h5>
+        <h6 class="card-subtitle mb-2">Platform: {{this.streamService}}</h6>
     </li>
-    <li class="list-group-item">
-        <p class="card-text">{{this.writeUp}}</p>
+    <li class="list-group-item bg-dark text-light border-warning">
+        <h6 class="card-title text-center text-light">Review</h6>
+        <p class="card-text text-center">{{this.writeUp}}</p>
+        <h6 class="card-subtitle mb-2 text-center text-warning">Rating: {{this.rating}}</h6>
     </li>
 
     {{#if this.recommend}}
-    <li class="list-group-item text-center">They recommend this movie!</li>
+    <li class="list-group-item text-center text-light bg-dark border-warning">They recommend this movie!</li>
     {{/if}}
     {{#unless this.recommend}}
-    <li class="list-group-item text-center">They do not recommend this movie...</li>
+    <li class="list-group-item text-center text-light bg-dark border-warning">They do not recommend this movie...</li>
     {{/unless}}
-    <li class="list-group-item reviewTimestamp text-muted text-center">{{this.createdAt}}</li>
+    <li class="list-group-item reviewTimestamp bg-dark border-warning text-light text-center">{{this.createdAt}}</li>
 </ul>

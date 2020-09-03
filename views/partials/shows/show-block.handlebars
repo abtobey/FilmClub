@@ -1,16 +1,18 @@
 <ul style="width: 100%;">
-    <li class="list-group-item" id="showInfo">
-        <h5 class="card-title"><a class="showTitle">{{this.title}}</a></h5>
-        <h6 class="card-subtitle mb-2">Rating: {{this.rating}} | Platform: {{this.streamService}}</h6>
+    <li class=" list-group-item bg-dark text-warning border-warning" id="showInfo">
+        <h5 class="card-title"><a class="showTitle text-light">{{this.title}}</a></h5>
+        <h6 class="card-subtitle mb-2">Platform: {{this.streamService}}</h6>
     </li>
 
-    <li class="list-group-item">
-        <p class="card-text">{{this.writeUp}}</p>
+    <li class="list-group-item bg-dark text-light border-warning">
+        <h6 class="card-title text-center text-light">Review</h6>
+        <p class="card-text text-center">{{this.writeUp}}</p>
+        <h6 class="card-subtitle mb-2 text-center text-warning">Rating: {{this.rating}}</h6>
     </li>
-    <li class="list-group-item">
-        <p class="card-text">Episodes required to get into: {{this.minEpisodes}}</p>
+    <li class="list-group-item bg-dark border-warning">
+        <p class="card-text text-center text-warning">Episodes required to get into: {{this.minEpisodes}}</p>
     </li>
-    <li class="list-group-item">
-        <button class="delete-show-review btn btn-danger btn-sm" data-id="{{this.id}}">Delete Review</button>
+    <li class="list-group-item bg-dark text-light border-warning d-flex justify-content-center">
+        <button class="delete-show-review btn btn-outline-danger btn-sm" data-id="{{this.id}}">Delete Review</button>
     </li>
 </ul>
