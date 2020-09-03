@@ -1,5 +1,4 @@
 <main class="container mt-6">
-
   <div class="accordion" id="accordionExample">
     <div class="card bg-dark bg-outline-warning border-warning">
       <div class="card-header" id="headingOne">
@@ -20,12 +19,13 @@
       </div>
     </div>
   </div>
+
   {{!-- MOVIES --}}
   <div class="row d-flex justify-content-center mt-3 text-light text-center">
     <h2>Movie Reviews</h2>
   </div>
 
-{{#if currentUser}}
+  {{#if currentUser}}
 
   <div class="row">
 
@@ -70,8 +70,8 @@
       {{/each}}
     </div>
   </div>
-{{/if}}
-{{#unless currentUser}}
+  {{/if}}
+  {{#unless currentUser}}
 
   <div class="row">
 
@@ -116,6 +116,6 @@
       {{/each}}
     </div>
   </div>
-{{/unless}}
+  {{/unless}}
   </div>
 </main>
