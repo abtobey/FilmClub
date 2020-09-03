@@ -1,4 +1,4 @@
-<ul class="mt-3" style="width: 35rem;">
+<ul style="width: 35rem;">
     <li class="list-group-item">
         <h5 class="card-text text-center"><a class="userName">{{this.userName}}</a>'s Review</h5>
     </li>
@@ -11,10 +11,10 @@
     </li>
 
     {{#if this.recommend}}
-    <li class="list-group-item text-center">Recommended</li>
+    <li class="list-group-item text-center">They recommend this movie!</li>
     {{/if}}
     {{#unless this.recommend}}
-    <li class="list-group-item text-center">Not recommended</li>
+    <li class="list-group-item text-center">They do not recommend this movie...</li>
     {{/unless}}
     <li class="list-group-item reviewTimestamp text-muted text-center">{{this.createdAt}}</li>
 </ul>
