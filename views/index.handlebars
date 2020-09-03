@@ -12,23 +12,21 @@
 
       <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
         <div class="card-body bg-dark">
-          <button type="button" class="btn btn-primary" id="addMovie">Movie Form</button>
-          <button type="button" class="btn btn-primary" id="addShow">Show Form</button>
+          <button type="button" class="btn btn-warning" id="addMovie">Movie Form</button>
+          <button type="button" class="btn btn-warning" id="addShow">Show Form</button>
           <div id="inputForm"></div>
         </div>
       </div>
     </div>
   </div>
 
+  {{#if currentUser}}
   {{!-- MOVIES --}}
-  <div class="row d-flex justify-content-center mt-3 text-light text-center">
+  <div class="row d-flex justify-content-center mt-5 text-warning text-center">
     <h2>Movie Reviews</h2>
   </div>
 
-  {{#if currentUser}}
-
   <div class="row">
-
     <div class="col-6">
       <h4 class="text-light text-center">Recommended</h4>
       {{#each movies}}
@@ -48,7 +46,7 @@
     </div>
   </div>
   {{!-- TVSHOWS --}}
-  <div class="row d-flex justify-content-center mt-3 text-light text-center">
+  <div class="row d-flex justify-content-center mt-5 text-warning text-center">
     <h2>TV Show Reviews</h2>
   </div>
 
@@ -71,10 +69,13 @@
     </div>
   </div>
   {{/if}}
+
+  {{!-- RENDERS OTHER USERS PAGE WITHOUT DELETE BUTTONS --}}
   {{#unless currentUser}}
-
+  <div class="row d-flex justify-content-center mt-5 text-warning text-center">
+    <h2>Movie Reviews</h2>
+  </div>
   <div class="row">
-
     <div class="col-6">
       <h4 class="text-light text-center">Recommended</h4>
       {{#each movies}}
@@ -94,7 +95,7 @@
     </div>
   </div>
   {{!-- TVSHOWS --}}
-  <div class="row d-flex justify-content-center mt-3">
+  <div class="row d-flex justify-content-center mt-5 text-warning text-center">
     <h2>TV Show Reviews</h2>
   </div>
 
@@ -117,5 +118,4 @@
     </div>
   </div>
   {{/unless}}
-  </div>
 </main>
