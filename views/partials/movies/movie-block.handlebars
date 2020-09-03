@@ -7,7 +7,10 @@
     <li class="list-group-item">
         <p class="card-text">{{this.writeUp}}</p>
     </li>
+    {{#if user}}
     <li class="list-group-item">
-        <button class="delete-review btn btn-danger btn-sm" data-id="{{this.id}}">Delete Review</button>
+        <button class="delete-movie-review btn btn-danger btn-sm" data-id="{{this.id}}">Delete Review</button>
     </li>
+    {{/if}}
+
 </ul>

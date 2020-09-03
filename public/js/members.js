@@ -28,6 +28,15 @@ $(document).ready(() => {
     });
   });
 
+  $('.delete-show-review').on('click', function () {
+    console.log($(this).data('id'));
+    $.ajax('/api/shows/' + $(this).data('id'), {
+      type: 'DELETE'
+    }).then(() => {
+      location.reload();
+    });
+  });
+
   $('.movieTitle').on('click', function () {
     const title = $(this).text();
     window.location.replace('/movies=' + title);
@@ -47,7 +56,6 @@ $(document).ready(() => {
         });
         break;
       case '2':
-        console.log('somtthing');
         window.location.replace('/movies=' + searchValue);
         break;
       case '3':
