@@ -1,18 +1,29 @@
-<nav class="navbar navbar-default">
-    <div class="container-fluid">
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/">
-                FILM CLUB
-            </a>
-        </div>
-        <div class="navbar-header">
-            <a class="navbar-brand" href="/logout">
-                Logout
-            </a>
-        </div>
-        <form class="form-inline pull-right" id="userSearch">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <img class="mt-1 mb-1 mr-2 center-block" id="handlebarLogo" src="./assets/FILMCLUB.png" alt="Website Logo">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="/movies">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link pull right" href="/logout">Logout</a>
+        </li>
+      </ul>
     </div>
-</nav>
+    <div class="input-group justify-content-end d-flex" id="searchAlign">
+      <select class="custom-select" id="searchSelect">
+        <option value="1">Search a User</option>
+        <option value="2">Search a Movie</option>
+        <option value="3">Search a TV Show</option>
+      </select>
+      <input type="text" class="form-control" id="searchInput" placeholder="Enter user, movie, or show"
+        aria-label="search" aria-describedby="searchButton">
+      <div class="input-group-append">
+        <button class="btn btn-outline-success" type="button" id="searchButton">Search</button>
+      </div>
+    </div>
+  </nav>

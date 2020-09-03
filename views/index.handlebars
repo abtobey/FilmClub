@@ -1,23 +1,45 @@
-<main class="container">
-  <button type="button" class="btn btn-primary" id="addMovie">Add a Movie</button>
-  <button type="button" class="btn btn-primary" id="addShow">Add a Show</button>
-  <div id="inputForm"></div>
+<main class="container mt-6">
+
+  <div class="accordion" id="accordionExample">
+    <div class="card">
+      <div class="card-header" id="headingOne">
+        <h2 class="mb-0">
+          <button class="btn btn-link btn-block text-center" type="button" data-toggle="collapse"
+            data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Click Here to add a show or movie!
+          </button>
+        </h2>
+      </div>
+
+      <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          <button type="button" class="btn btn-primary" id="addMovie">Movie Form</button>
+          <button type="button" class="btn btn-primary" id="addShow">Show Form</button>
+          <div id="inputForm"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{!-- MOVIES --}}
+  <div class="row d-flex justify-content-center mt-3">
+    <h2>Movie Reviews</h2>
+  </div>
 
 
 
-
-  <h2>Movies</h2>
   <div class="row">
+
     <div class="col-6">
-      Recommended
+      <h4>Recommended</h4>
       {{#each movies}}
       {{#if recommend}}
       {{> movies/movie-block}}
       {{/if}}
       {{/each}}
     </div>
+
     <div class="col-6">
-      Not recommended
+      <h4>Not Recommended</h4>
       {{#each movies}}
       {{#unless recommend}}
       {{> movies/movie-block}}
@@ -25,10 +47,14 @@
       {{/each}}
     </div>
   </div>
-  <h2>Tv Shows</h2>
+  {{!-- TVSHOWS --}}
+  <div class="row d-flex justify-content-center mt-3">
+    <h2>TV Show Reviews</h2>
+  </div>
+
   <div class="row">
     <div class="col-6">
-      Recommended
+      <h4>Recommended</h4>
       {{#each shows}}
       {{#if recommend}}
       {{> shows/show-block}}
@@ -36,7 +62,7 @@
       {{/each}}
     </div>
     <div class="col-6">
-      Not recommended
+      <h4>Not Recommended</h4>
       {{#each shows}}
       {{#unless recommend}}
       {{> shows/show-block}}

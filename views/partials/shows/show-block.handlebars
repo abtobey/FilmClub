@@ -1,9 +1,16 @@
-<div class="card" style="width: 18rem;">
-    <div class="card-body">
-        <h5 class="card-title showTitle">{{this.title}}</h5>
-        <h6 class="card-subtitle mb-2 text-muted">Rating: {{this.rating}} | Platform: {{this.streamService}}</h6>
-        <h6>Watch at least {{this.minEpisodes}} episodes before giving up</h6>
+<ul style="width: 100%;">
+    <li class="list-group-item" id="movieInfo">
+        <h5 class="card-title"><a class="movieTitle">{{this.title}}</a></h5>
+        <h6 class="card-subtitle mb-2">Rating: {{this.rating}} | Platform: {{this.streamService}}</h6>
+    </li>
+
+    <li class="list-group-item">
         <p class="card-text">{{this.writeUp}}</p>
+    </li>
+    <li class="list-group-item">
+        <p class="card-text">Episodes required to get into: {{this.minEpisodes}}</p>
+    </li>
+    <li class="list-group-item">
         <button class="delete-show-review btn btn-danger btn-sm" data-id="{{this.id}}">Delete Review</button>
-    </div>
-</div>
+    </li>
+</ul>
