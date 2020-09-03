@@ -22,7 +22,6 @@ module.exports = function (app) {
       rating: req.body.rating,
       writeUp: req.body.writeUp,
       recommend: req.body.recommend,
-      // need to figure out how to get the session user ID
       UserId: req.user.id
     }).then(() => {
       res.status(200).end();
@@ -37,7 +36,6 @@ module.exports = function (app) {
       minEpisodes: req.body.minEpisodes,
       writeUp: req.body.writeUp,
       recommend: req.body.recommend,
-      // need to figure out how to get the session user ID
       UserId: req.user.id
     }).then(() => {
       res.status(200).end();
@@ -61,23 +59,30 @@ module.exports = function (app) {
       });
   });
 
-  app.get('/users=:id', (req, res) => {
-    db.Movie.findAll({
-      where: { UserId: req.params.id },
-      include: [db.User]
+  app.delete('/api/movie/:id', (req, res) => {
+    db.Movie.destroy({
+      where: { id: req.params.id }
     }).then((data) => {
-      const filteredUserMovies = data.map((item) => {
-        return {
-          userName: item.User.userName,
-          title: item.title,
-          rating: item.rating,
-          writeUp: item.writeUp,
-          recommend: item.recommend,
-          streamService: item.streamService,
-          createdAt: moment(item.createdAt).format('MMMM Do YYYY h:mm:ss a')
-        };
+      console.log('ok');
+      res.json(data);
+    });
+  });
+
+  app.get('/users=:id', (req, res) => {
+    let moviesReviewed = [];
+    let showsReviewed = [];
+    db.Movie.findAll({
+      where: { UserId: req.params.id }
+    }).then((data) => {
+      moviesReviewed = data.map((item) => item.dataValues);
+    }).then(() => {
+      db.TvShow.findAll({
+        where: { UserId: req.params.id }
+      }).then((data) => {
+        showsReviewed = data.map((item) => item.dataValues);
+      }).then(() => {
+        res.render('index', { movies: moviesReviewed, shows: showsReviewed });
       });
-      res.render('user-page', { userName: filteredUserMovies[0].userName, movies: filteredUserMovies });
     });
   });
 
@@ -129,8 +134,8 @@ module.exports = function (app) {
   });
 
   app.get('/movies', (req, res) => {
-    let moviesReviewed =[];
-    let showsReviewed=[];
+    let moviesReviewed = [];
+    let showsReviewed = [];
     db.Movie.findAll({
       where: { UserId: req.user.id }
     }).then((data) => {

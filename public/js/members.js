@@ -1,6 +1,4 @@
 $(document).ready(() => {
-  // This file just does a GET request to figure out which user is logged in
-  // and updates the HTML on the page
   $.get('/api/user_data').then((data) => {
     $('.member-name').text(data.userName);
   });
@@ -21,14 +19,45 @@ $(document).ready(() => {
     });
   });
 
-  $('.movieTitle').on('click', function () {
-    const title = $(this).text();
-    $.get(`/movies=${title}`).then((data) => {
-      // console.log(data);
-      // location.reload();
-      window.location.replace('/movies=' + title);
+  $('.delete-movie-review').on('click', function () {
+    console.log($(this).data('id'));
+    $.ajax('/api/movie/' + $(this).data('id'), {
+      type: 'DELETE'
+    }).then(() => {
+      location.reload();
     });
   });
+
+  $('.movieTitle').on('click', function () {
+    const title = $(this).text();
+    window.location.replace('/movies=' + title);
+  });
+
+  $('#searchButton').on('click', function () {
+    const searchOption = $('#searchSelect').val();
+    const searchValue = $('#searchInput').val().trim();
+    console.log(searchOption);
+    console.log(searchValue);
+    switch (searchOption) {
+      case '1':
+        $.get('/api/userid/' + searchValue).then((data) => {
+          $.get('/users=' + data).then(() => {
+            window.location.replace('/users=' + data);
+          });
+        });
+        break;
+      case '2':
+        console.log('somtthing');
+        window.location.replace('/movies=' + searchValue);
+        break;
+      case '3':
+        window.location.replace('/shows=' + searchValue);
+        break;
+      default:
+        break;
+    }
+  });
+
   $('.showTitle').on('click', function () {
     const title = $(this).text();
     $.get(`/shows=${title}`).then((data) => {
