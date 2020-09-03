@@ -59,6 +59,10 @@ module.exports = function (app) {
       });
   });
 
+  app.get('/404', (req, res) => {
+    res.render('404');
+  });
+
   app.delete('/api/shows/:id', (req, res) => {
     db.TvShow.destroy({
       where: { id: req.params.id }
@@ -78,9 +82,9 @@ module.exports = function (app) {
   app.get('/users=:id', (req, res) => {
     let moviesReviewed = [];
     let showsReviewed = [];
-    let currentUser=false;
-    if(req.user.id === parseInt(req.params.id)){
-      currentUser=true;
+    let currentUser = false;
+    if (req.user.id === parseInt(req.params.id)) {
+      currentUser = true;
     }
     db.Movie.findAll({
       where: { UserId: req.params.id }
@@ -101,12 +105,10 @@ module.exports = function (app) {
     db.User.findOne({
       where: { userName: req.params.userName }
     }).then((data) => {
-      if(!data){
-        console.log('oops');
-        res.render('404');
-      }
-      else{
-      res.json(data.id);
+      if (!data) {
+        res.json('404');
+      } else {
+        res.json(data.id);
       }
     });
   });

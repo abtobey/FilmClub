@@ -48,9 +48,13 @@ $(document).ready(() => {
     switch (searchOption) {
       case '1':
         $.get('/api/userid/' + searchValue).then((data) => {
-          $.get('/users=' + data).then(() => {
-            window.location.replace('/users=' + data);
-          });
+          if (data !== '404') {
+            $.get('/users=' + data).then(() => {
+              window.location.replace('/users=' + data);
+            });
+          } else {
+            window.location.replace('/404');
+          }
         });
         break;
       case '2':
