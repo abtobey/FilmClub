@@ -22,7 +22,6 @@ module.exports = function (app) {
       rating: req.body.rating,
       writeUp: req.body.writeUp,
       recommend: req.body.recommend,
-      // need to figure out how to get the session user ID
       UserId: req.user.id
     }).then(() => {
       res.status(200).end();
@@ -37,7 +36,6 @@ module.exports = function (app) {
       minEpisodes: req.body.minEpisodes,
       writeUp: req.body.writeUp,
       recommend: req.body.recommend,
-      // need to figure out how to get the session user ID
       UserId: req.user.id
     }).then(() => {
       res.status(200).end();
@@ -61,9 +59,18 @@ module.exports = function (app) {
       });
   });
 
+  app.delete('/api/movie/:id', (req, res) => {
+    db.Movie.destroy({
+      where: { id: req.params.id }
+    }).then((data) => {
+      console.log('ok');
+      res.json(data);
+    });
+  });
+
   app.get('/users=:id', (req, res) => {
-    let moviesReviewed =[];
-    let showsReviewed=[];
+    let moviesReviewed = [];
+    let showsReviewed = [];
     db.Movie.findAll({
       where: { UserId: req.params.id }
     }).then((data) => {
@@ -127,8 +134,8 @@ module.exports = function (app) {
   });
 
   app.get('/movies', (req, res) => {
-    let moviesReviewed =[];
-    let showsReviewed=[];
+    let moviesReviewed = [];
+    let showsReviewed = [];
     db.Movie.findAll({
       where: { UserId: req.user.id }
     }).then((data) => {
