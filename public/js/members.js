@@ -85,7 +85,7 @@ $(document).ready(() => {
     <form>
 <div class="form-group text-light">
   <label for="movieTitle">Show Title</label>
-  <input type="text" class="form-control bg-secondary" id="showTitle">
+  <input type="text" class="form-control bg-secondary border-dark" id="showTitle">
 </div>
 <form>
   <div class="form-group text-light">
