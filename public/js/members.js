@@ -45,8 +45,6 @@ $(document).ready(() => {
   $('#searchButton').on('click', function () {
     const searchOption = $('#searchSelect').val();
     const searchValue = $('#searchInput').val().trim();
-    console.log(searchOption);
-    console.log(searchValue);
     switch (searchOption) {
       case '1':
         $.get('/api/userid/' + searchValue).then((data) => {

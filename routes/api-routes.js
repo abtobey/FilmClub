@@ -101,7 +101,13 @@ module.exports = function (app) {
     db.User.findOne({
       where: { userName: req.params.userName }
     }).then((data) => {
+      if(!data){
+        console.log('oops');
+        res.render('404');
+      }
+      else{
       res.json(data.id);
+      }
     });
   });
 
