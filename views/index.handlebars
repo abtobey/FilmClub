@@ -25,7 +25,7 @@
     <h2>Movie Reviews</h2>
   </div>
 
-
+{{#if currentUser}}
 
   <div class="row">
 
@@ -33,7 +33,7 @@
       <h4>Recommended</h4>
       {{#each movies}}
       {{#if recommend}}
-      {{> movies/movie-block}}
+      {{> movies/movie-block user=true}}
       {{/if}}
       {{/each}}
     </div>
@@ -42,7 +42,7 @@
       <h4>Not Recommended</h4>
       {{#each movies}}
       {{#unless recommend}}
-      {{> movies/movie-block}}
+      {{> movies/movie-block user=true}}
       {{/unless}}
       {{/each}}
     </div>
@@ -57,7 +57,7 @@
       <h4>Recommended</h4>
       {{#each shows}}
       {{#if recommend}}
-      {{> shows/show-block}}
+      {{> shows/show-block user=true}}
       {{/if}}
       {{/each}}
     </div>
@@ -65,11 +65,57 @@
       <h4>Not Recommended</h4>
       {{#each shows}}
       {{#unless recommend}}
-      {{> shows/show-block}}
+      {{> shows/show-block user=true}}
       {{/unless}}
       {{/each}}
     </div>
   </div>
+{{/if}}
+{{#unless currentUser}}
 
+  <div class="row">
+
+    <div class="col-6">
+      <h4>Recommended</h4>
+      {{#each movies}}
+      {{#if recommend}}
+      {{> movies/movie-block user=false}}
+      {{/if}}
+      {{/each}}
+    </div>
+
+    <div class="col-6">
+      <h4>Not Recommended</h4>
+      {{#each movies}}
+      {{#unless recommend}}
+      {{> movies/movie-block user=false}}
+      {{/unless}}
+      {{/each}}
+    </div>
+  </div>
+  {{!-- TVSHOWS --}}
+  <div class="row d-flex justify-content-center mt-3">
+    <h2>TV Show Reviews</h2>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      <h4>Recommended</h4>
+      {{#each shows}}
+      {{#if recommend}}
+      {{> shows/show-block user=false}}
+      {{/if}}
+      {{/each}}
+    </div>
+    <div class="col-6">
+      <h4>Not Recommended</h4>
+      {{#each shows}}
+      {{#unless recommend}}
+      {{> shows/show-block user=false}}
+      {{/unless}}
+      {{/each}}
+    </div>
+  </div>
+{{/unless}}
   </div>
 </main>
