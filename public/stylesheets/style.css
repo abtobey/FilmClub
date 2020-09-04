@@ -92,3 +92,11 @@ ul {
 .movieSectionHeader {
   text-align: center;
 }
+
+/* Small screen adjustments */
+@media only screen and (max-width: 768px) {
+  #loginCard,
+  #signUpCard {
+  margin-top: 5%;
+  } 
+}
