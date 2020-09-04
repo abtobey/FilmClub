@@ -7,8 +7,10 @@ $(document).ready(() => {
     if (playing) return;
     if (formSwitch.text() === 'Switch to movie form') {
       formSwitch.text('Switch to show form');
+      document.getElementById('movieRecommend').checked = true;
     } else {
       formSwitch.text('Switch to movie form');
+      document.getElementById('showRecommend').checked = true;
     }
     playing = true;
     anime({

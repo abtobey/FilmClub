@@ -83,9 +83,11 @@ module.exports = function (app) {
     let moviesReviewed = [];
     let showsReviewed = [];
     let currentUser = false;
+
     if (req.user.id === parseInt(req.params.id)) {
       currentUser = true;
     }
+    console.log(req.user.id + ' ' + parseInt(req.params.id) + ' ' + currentUser);
     db.Movie.findAll({
       where: { UserId: req.params.id }
     }).then((data) => {
@@ -125,7 +127,7 @@ module.exports = function (app) {
           writeUp: item.writeUp,
           recommend: item.recommend,
           streamService: item.streamService,
-          createdAt: moment(item.createdAt).format('MMMM Do YYYY h:mm:ss a')
+          createdAt: moment(item.createdAt).format('MMMM Do YYYY h:mm:ss a', 'America/Chicago')
         };
       });
       res.render('movie-search', { title: req.params.title, reviews: filtered });
