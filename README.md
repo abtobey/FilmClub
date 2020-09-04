@@ -8,7 +8,7 @@ Film Club is an app with the goal to facilitate people's passion for movies and 
 
 - [Aaron Tobey's Github](https://github.com/abtobey)
 - [Ian Pyeatt's Github](https://github.com/pyeatti)
-- Not Luis
+
 
 ## Deployed Site
 
