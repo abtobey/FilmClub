@@ -18,6 +18,41 @@ body {
   color: orange !important;
 }
 
+/* anime.js lettering */
+.ml11 {
+  font-weight: 700;
+  font-size: 3.5em;
+}
+
+.ml11 .text-wrapper {
+  position: relative;
+  display: inline-block;
+  padding-top: 0.1em;
+  padding-right: 0.05em;
+  padding-bottom: 0.15em;
+}
+
+.ml11 .line {
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  height: 100%;
+  width: 3px;
+  background-color: #fff;
+  transform-origin: 0 50%;
+}
+
+.ml11 .line1 {
+  top: 0;
+  left: 0;
+}
+
+.ml11 .letter {
+  display: inline-block;
+  line-height: 1em;
+}
+/* */
+
 ul {
   display: block;
   list-style-type: disc;
@@ -37,7 +72,7 @@ ul {
 
 #loginCard,
 #signUpCard {
-  margin-top: 40%;
+  margin-top: 45%;
 }
 
 #welcomeText {
@@ -56,6 +91,14 @@ ul {
 }
 .movieSectionHeader {
   text-align: center;
+}
+
+/* Small screen adjustments */
+@media only screen and (max-width: 768px) {
+  #loginCard,
+  #signUpCard {
+  margin-top: 5%;
+  } 
 }
 .toggle{
   margin:auto;

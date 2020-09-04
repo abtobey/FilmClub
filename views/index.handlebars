@@ -111,8 +111,8 @@
     <h2>Movie Reviews</h2>
   </div>
 
-  <div class="row">
-    <div class="col-6">
+  <div class="row mt-3">
+    <div class="col-12 col-md-6">
       <h4 class="text-light text-center">Recommended</h4>
       {{#each movies}}
       {{#if recommend}}
@@ -121,8 +121,9 @@
       {{/each}}
     </div>
 
-    <div class="col-6">
+    <div class="col-12 col-md-6">
       <h4 class="text-light text-center">Not Recommended</h4>
+
       {{#each movies}}
       {{#unless recommend}}
       {{> movies/movie-block user=true}}
@@ -135,8 +136,8 @@
     <h2>TV Show Reviews</h2>
   </div>
 
-  <div class="row">
-    <div class="col-6">
+  <div class="row mt-3">
+    <div class="col-12 col-md-6">
       <h4 class="text-light text-center">Recommended</h4>
       {{#each shows}}
       {{#if recommend}}
@@ -144,7 +145,7 @@
       {{/if}}
       {{/each}}
     </div>
-    <div class="col-6">
+    <div class="col-12 col-md-6">
       <h4 class="text-light text-center">Not Recommended</h4>
       {{#each shows}}
       {{#unless recommend}}
@@ -161,7 +162,7 @@
     <h2>Movie Reviews</h2>
   </div>
   <div class="row">
-    <div class="col-6">
+    <div class="col-12 col-md-6">
       <h4 class="text-light text-center">Recommended</h4>
       {{#each movies}}
       {{#if recommend}}
@@ -170,7 +171,7 @@
       {{/each}}
     </div>
 
-    <div class="col-6">
+    <div class="col-12 col-md-6">
       <h4 class="text-light text-center">Not Recommended</h4>
       {{#each movies}}
       {{#unless recommend}}
@@ -185,7 +186,7 @@
   </div>
 
   <div class="row">
-    <div class="col-6">
+    <div class="col-12 col-md-6">
       <h4 class="text-light text-center">Recommended</h4>
       {{#each shows}}
       {{#if recommend}}
@@ -193,8 +194,8 @@
       {{/if}}
       {{/each}}
     </div>
-    <div class="col-6">
-      <h4 class="text-light text-center">Not Recommended</h4>
+    <div class="col-12 col-md-6">
+      <h4 class="text-light text-bold text-center">Not Recommended</h4>
       {{#each shows}}
       {{#unless recommend}}
       {{> shows/show-block user=false}}

@@ -1,33 +1,28 @@
 $(document).ready(() => {
-
- 
-  let flip=document.querySelector('.flipCard');
-  let formSwitch =$('#formSwitch')
+  const flip = document.querySelector('.flipCard');
+  const formSwitch = $('#formSwitch');
   let playing = false;
-  
-  $('#formSwitch').on('click',function() {
-    if(playing)
-      return;
-    if(formSwitch.text()==="Switch to movie form"){
-      formSwitch.text("Switch to show form");
+
+  $('#formSwitch').on('click', function () {
+    if (playing) return;
+    if (formSwitch.text() === 'Switch to movie form') {
+      formSwitch.text('Switch to show form');
+    } else {
+      formSwitch.text('Switch to movie form');
     }
-    else{
-      formSwitch.text("Switch to movie form");
-    };
     playing = true;
     anime({
       targets: flip,
-      scale: [{value: 1}, {value: 1.4}, {value: 1, delay: 250}],
-      rotateY: {value: '+=180', delay: 200},
+      scale: [{ value: 1 }, { value: 1.4 }, { value: 1, delay: 250 }],
+      rotateY: { value: '+=180', delay: 200 },
       easing: 'easeInOutSine',
       duration: 400,
-      complete: function(anim){
-         playing = false;
+      complete: function (anim) {
+        playing = false;
       }
     });
   });
 
-  
   $.get('/api/user_data').then((data) => {
     $('.member-name').text(data.userName);
   });
@@ -73,7 +68,9 @@ $(document).ready(() => {
 
   $('#searchButton').on('click', function () {
     const searchOption = $('#searchSelect').val();
-    const searchValue = $('#searchInput').val().trim();
+    const searchValue = $('#searchInput')
+      .val()
+      .trim();
     switch (searchOption) {
       case '1':
         $.get('/api/userid/' + searchValue).then((data) => {
@@ -106,53 +103,6 @@ $(document).ready(() => {
     });
   });
 
-//   $('#addShow').on('click', function () {
-//     $('#inputForm')
-//       .empty()
-//       .append(
-//         `
-//     <form>
-// <div class="form-group text-light">
-//   <label for="ShowTitle">Show Title</label>
-//   <input type="text" class="form-control bg-secondary border-dark" id="showTitle">
-// </div>
-// <form>
-//   <div class="form-group text-light">
-//     <label for="rating">Rating(0 to 10)</label>
-//     <input type="range" class="form-control-range" id="rating">
-//   </div>
-// </form>
-// <div class="form-group text-light">
-//   <label for="writeUp">Write Up (max 240 characters)</label>
-//   <textarea class="form-control" id="writeUp" rows="3"></textarea>
-// </div>
-// <div class="form-group text-light">
-//   <label for="movieTitle">How many episodes should someone watch before giving up?</label>
-//   <input type="number" class="form-control" id="minEpisodes" value="0">
-// </div>
-// <div class="form-group text-light">
-//   <label for="streamingService">What streaming service did you watch it on?</label>
-//   <select class="form-control" id="streamingService">
-//     <option>Netflix</option>
-//     <option>Hulu</option>
-//     <option>Amazon</option>
-//     <option>Apple Video</option>
-//     <option>Disney Plus</option>
-//     <option>HBO</option>
-//     <option>None of the above</option>
-//   </select>
-// </div>
-// <div class="form-group text-light">
-//   <div class="form-group">
-//     <label for="recommend"> Would you recommend this show?</label><br>
-//     <input type="radio" name="recommend" value="1" checked>Recommend<br>
-//     <input type="radio" name="recommend" value="0"> Do Not Recommend
-//   </div>
-// </div>
-// <button type="button" class="btn btn-warning" id="showSubmitButton">Submit</button>
-// </div>
-//     `
-//       );
   $('#showSubmitButton').on('click', function () {
     event.preventDefault();
     const title = $('#showTitle');
@@ -181,50 +131,7 @@ $(document).ready(() => {
       location.reload();
     });
   });
-  // });
-//   $('#addMovie').on('click', function () {
-//     $('#inputForm')
-//       .empty()
-//       .append(
-//         `
-// <form>
-// <div class="form-group">
-//   <label for="movieTitle">Movie Title</label>
-//   <input type="text" class="form-control" id="movieTitle">
-// </div>
-// <form>
-//   <div class="form-group">
-//     <label for="rating">Rating(0 to 10)</label>
-//     <input type="range" class="form-control-range" id="rating">
-//   </div>
-// </form>
-// <div class="form-group">
-//   <label for="writeUp">Write Up (max 240 characters)</label>
-//   <textarea class="form-control" id="writeUp" rows="3"></textarea>
-// </div>
-// <div class="form-group">
-//   <label for="streamingService">What streaming service did you watch it on?</label>
-//   <select class="form-control" id="streamingService">
-//     <option>Netflix</option>
-//     <option>Hulu</option>
-//     <option>Amazon</option>
-//     <option>Apple Video</option>
-//     <option>Disney Plus</option>
-//     <option>HBO</option>
-//     <option>None of the above</option>
-//   </select>
-// </div>
-// <div class="form-group">
-//   <div class="form-group">
-//     <label for="recommend"> Would you recommend this movie?</label><br>
-//     <input type="radio" name="recommend" value="1" checked>Recommend<br>
-//     <input type="radio" name="recommend" value="0"> Do Not Recommend
-//   </div>
-// </div>
-// <button type="button" class="btn btn-primary" id="movieSubmitButton">Submit</button>
-// </div>
-// `
-//       );
+
   $('#movieSubmitButton').on('click', function () {
     event.preventDefault();
     const title = $('#movieTitle');

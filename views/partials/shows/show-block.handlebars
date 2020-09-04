@@ -12,7 +12,10 @@
     <li class="list-group-item bg-dark border-warning">
         <p class="card-text text-center text-warning">Episodes required to get into: {{this.minEpisodes}}</p>
     </li>
+    {{#if user}}
     <li class="list-group-item bg-dark text-light border-warning d-flex justify-content-center">
-        <button class="delete-show-review btn btn-outline-danger btn-sm" data-id="{{this.id}}">Delete Review</button>
+        <button class="delete-show-review btn btn-outline-danger text-white btn-sm" data-id="{{this.id}}">Delete
+            Review</button>
     </li>
+    {{/if}}
 </ul>
