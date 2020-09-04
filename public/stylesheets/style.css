@@ -100,3 +100,32 @@ ul {
   margin-top: 5%;
   } 
 }
+.toggle{
+  margin:auto;
+}
+
+.flipForm
+{
+  perspective: 1400px;
+}
+.flipCard
+{
+  position: relative;
+  transform-style: preserve-3d;
+}
+
+
+.frontFlip,
+.backFlip
+{
+  backface-visibility: hidden;
+  width: 100%;
+}
+.frontFlip
+{
+  transform: rotateY(180deg);
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
