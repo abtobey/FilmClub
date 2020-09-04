@@ -83,12 +83,11 @@ module.exports = function (app) {
     let moviesReviewed = [];
     let showsReviewed = [];
     let currentUser = false;
-   
+
     if (req.user.id === parseInt(req.params.id)) {
-      
       currentUser = true;
     }
-    console.log(req.user.id + ' ' + parseInt(req.params.id)+ ' '+ currentUser)
+    console.log(req.user.id + ' ' + parseInt(req.params.id) + ' ' + currentUser);
     db.Movie.findAll({
       where: { UserId: req.params.id }
     }).then((data) => {

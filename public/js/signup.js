@@ -40,7 +40,7 @@ $(document).ready(() => {
   }
 
   function handleLoginErr (err) {
-    $('#alert .msg').text("Email address or username is already in use");
+    $('#alert .msg').text('Email address or username is already in use');
     $('#alert').fadeIn(500);
   }
 
