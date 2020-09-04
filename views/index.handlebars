@@ -26,7 +26,7 @@
     <h2>Movie Reviews</h2>
   </div>
 
-  <div class="row">
+  <div class="row mt-3">
     <div class="col-6">
       <h4 class="text-light text-center">Recommended</h4>
       {{#each movies}}
@@ -38,6 +38,7 @@
 
     <div class="col-6">
       <h4 class="text-light text-center">Not Recommended</h4>
+
       {{#each movies}}
       {{#unless recommend}}
       {{> movies/movie-block user=true}}
@@ -50,7 +51,7 @@
     <h2>TV Show Reviews</h2>
   </div>
 
-  <div class="row">
+  <div class="row mt-3">
     <div class="col-6">
       <h4 class="text-light text-center">Recommended</h4>
       {{#each shows}}

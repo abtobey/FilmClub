@@ -42,18 +42,20 @@ $(document).ready(() => {
     window.location.replace("/movies=" + title);
   });
 
-  $('#searchButton').on('click', function () {
-    const searchOption = $('#searchSelect').val();
-    const searchValue = $('#searchInput').val().trim();
+  $("#searchButton").on("click", function() {
+    const searchOption = $("#searchSelect").val();
+    const searchValue = $("#searchInput")
+      .val()
+      .trim();
     switch (searchOption) {
-      case '1':
-        $.get('/api/userid/' + searchValue).then((data) => {
-          if (data !== '404') {
-            $.get('/users=' + data).then(() => {
-              window.location.replace('/users=' + data);
+      case "1":
+        $.get("/api/userid/" + searchValue).then((data) => {
+          if (data !== "404") {
+            $.get("/users=" + data).then(() => {
+              window.location.replace("/users=" + data);
             });
           } else {
-            window.location.replace('/404');
+            window.location.replace("/404");
           }
         });
         break;
@@ -85,7 +87,7 @@ $(document).ready(() => {
     <form>
 <div class="form-group text-light">
   <label for="movieTitle">Show Title</label>
-  <input type="text" class="form-control bg-secondary border-dark" id="showTitle">
+  <input type="text" class="form-control bg-secondary border-dark text-light" id="showTitle">
 </div>
 <form>
   <div class="form-group text-light">
@@ -95,15 +97,15 @@ $(document).ready(() => {
 </form>
 <div class="form-group text-light">
   <label for="writeUp">Write Up (max 240 characters)</label>
-  <textarea class="form-control" id="writeUp" rows="3"></textarea>
+  <textarea class="form-control bg-secondary border-dark text-light" id="writeUp" rows="3"></textarea>
 </div>
 <div class="form-group text-light">
   <label for="movieTitle">How many episodes should someone watch before giving up?</label>
-  <input type="number" class="form-control" id="minEpisodes" value="0">
+  <input type="number" class="form-control bg-secondary border-dark text-light" id="minEpisodes" value="0">
 </div>
 <div class="form-group text-light">
   <label for="streamingService">What streaming service did you watch it on?</label>
-  <select class="form-control" id="streamingService">
+  <select class="form-control bg-secondary border-dark text-light" id="streamingService">
     <option>Netflix</option>
     <option>Hulu</option>
     <option>Amazon</option>
@@ -159,23 +161,22 @@ $(document).ready(() => {
       .append(
         `
 <form>
-<div class="form-group">
+<div class="form-group text-light">
   <label for="movieTitle">Movie Title</label>
-  <input type="text" class="form-control" id="movieTitle">
+  <input type="text" class="form-control bg-secondary border-dark text-light" id="movieTitle">
 </div>
 <form>
-  <div class="form-group">
+  <div class="form-group text-light">
     <label for="rating">Rating(0 to 10)</label>
-    <input type="range" class="form-control-range" id="rating">
+    <input type="range" class="form-control-range bg-secondary border-dark text-light" id="rating">
   </div>
 </form>
-<div class="form-group">
-  <label for="writeUp">Write Up (max 240 characters)</label>
-  <textarea class="form-control" id="writeUp" rows="3"></textarea>
+<div class="form-group text-light">Write Up (max 240 characters)</label>
+  <textarea class="form-control bg-secondary border-dark text-light" id="writeUp" rows="3"></textarea>
 </div>
-<div class="form-group">
+<div class="form-group text-light">
   <label for="streamingService">What streaming service did you watch it on?</label>
-  <select class="form-control" id="streamingService">
+  <select class="form-control bg-secondary border-dark text-light" id="streamingService">
     <option>Netflix</option>
     <option>Hulu</option>
     <option>Amazon</option>
@@ -185,14 +186,14 @@ $(document).ready(() => {
     <option>None of the above</option>
   </select>
 </div>
-<div class="form-group">
+<div class="form-group text-light">
   <div class="form-group">
     <label for="recommend"> Would you recommend this movie?</label><br>
     <input type="radio" name="recommend" value="1" checked>Recommend<br>
     <input type="radio" name="recommend" value="0"> Do Not Recommend
   </div>
 </div>
-<button type="button" class="btn btn-primary" id="movieSubmitButton">Submit</button>
+<button type="button" class="btn btn-warning" id="movieSubmitButton">Submit</button>
 </div>
 `
       );
