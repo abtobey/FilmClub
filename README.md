@@ -34,5 +34,5 @@ anime.js - we used this to added dynamic features to some of our html elements o
 ## Screenshot (WIP)
 
 ![loginscreengrab](public/assets/Login.png)
-![signupscreengrab](public/assets/SignUp.png)
+![signupscreengrab](public/assets/SIgnUp.png)
 ![userpagescreengrab](public/assets/UserPage.png)
