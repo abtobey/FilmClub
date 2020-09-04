@@ -57,3 +57,64 @@ ul {
 .movieSectionHeader {
   text-align: center;
 }
+.toggle{
+  margin:auto;
+}
+.anime-card-container
+{
+    font-family: 'Open Sans', sans serif;
+    text-align: center;
+    height: 180px;
+    width: 80%;
+    margin: 10px auto;
+
+    border-radius: 10px;
+
+    perspective: 1400px;
+}
+
+.anime-card
+{
+    position: relative;
+
+    height: 100%;
+
+    border-radius: 10px;
+
+    width: 100%;
+    transform-style: preserve-3d;
+}
+
+.front,
+.back
+{
+    display: flex;
+
+    width: 100%;
+    height: 100%;
+
+    border-radius: 10px;
+
+    justify-content: center;
+    align-items: center;
+    backface-visibility: hidden;
+}
+
+.front
+{
+    color: #fff;
+    background: #2196f3;
+      position: absolute;
+    top: 0;
+    left: 0;
+
+    transform: rotateY(180deg);
+}
+
+.back
+{
+
+
+    color: #2196f3;
+    background: #fff;
+}
